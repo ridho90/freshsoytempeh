@@ -18,7 +18,22 @@ function App() {
         <Hero />
         <TrustStrip />
         <ProductOrderSection />
+
+        {/* ─── PROMO BANNER ─── */}
+        <section className="mx-auto w-full max-w-6xl px-4 py-6 lg:px-8">
+          <div className="rounded-2xl border-2 border-[#E89035] bg-[#F6F0E4] p-5 text-center sm:p-6">
+            <p className="text-sm font-extrabold uppercase tracking-wide text-[#E89035]">Fresh Soy Tempeh Available Now</p>
+            <p className="mt-1 text-xl font-extrabold text-[#2F3432] sm:text-2xl">BUY 4, GET 1 FREE</p>
+            <div className="mt-3 space-y-1 text-sm text-[#6B736E]">
+              <p>• Pick-up available in Totara Vale, Northshore</p>
+              <p>• Order 8 pcs for FREE Auckland delivery</p>
+              <p>• Nationwide orders get $8 off shipping</p>
+            </div>
+          </div>
+        </section>
+
         <CookingVersatility />
+
         <NutritionTransparency />
         <QualityGuide />
 

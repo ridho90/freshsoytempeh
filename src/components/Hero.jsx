@@ -1,4 +1,4 @@
-import { CheckCircle2, MapPin, ShieldCheck, Star } from 'lucide-react'
+import { CheckCircle2, MapPin, ShieldCheck, Star, Truck, MapPinOff } from 'lucide-react'
 import CTAButton from './CTAButton'
 import WhatsAppOrderButton from './WhatsAppOrderButton'
 import packImage from '../assets/fresh-soy-tempeh-pack.png'
@@ -21,6 +21,30 @@ function Hero() {
           <MapPin className="h-3.5 w-3.5" />
           Made in New Zealand
         </p>
+        <div className="mb-4 rounded-2xl border-2 border-[#E89035] bg-gradient-to-r from-[#F6F0E4] to-[#EEF7EA] p-4">
+          <p className="text-center text-sm font-bold text-[#2F3432] sm:text-base">
+            <span className="text-[#E89035]">Fresh Soy Tempeh Available Now</span>
+          </p>
+          <p className="mt-2 text-center text-lg font-extrabold text-[#4F7C48] sm:text-xl">
+            BUY 4, GET 1 FREE
+          </p>
+          <div className="mt-3 flex flex-wrap justify-center gap-2 text-xs text-[#6B736E] sm:text-sm">
+            <span className="inline-flex items-center gap-1">
+              <MapPin className="h-3.5 w-3.5 text-[#4F7C48]" />
+              Pick-up in Totara Vale, Northshore
+            </span>
+            <span className="text-[#D8EBD0]">|</span>
+            <span className="inline-flex items-center gap-1">
+              <Truck className="h-3.5 w-3.5 text-[#4F7C48]" />
+              Order 8 pcs for FREE Auckland delivery
+            </span>
+            <span className="text-[#D8EBD0]">|</span>
+            <span className="inline-flex items-center gap-1">
+              <MapPinOff className="h-3.5 w-3.5 text-[#4F7C48]" />
+              $8 off shipping nationwide
+            </span>
+          </div>
+        </div>
         <h1 className="text-3xl font-extrabold leading-tight text-[#2F3432] sm:text-4xl">
           Fresh Soy Tempeh, crafted for healthy everyday meals.
         </h1>
