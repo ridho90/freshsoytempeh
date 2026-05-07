@@ -1,0 +1,5 @@
+- [x] Add Tailwind v4 integration and base styling setup
+- [x] Copy packaging image to `src/assets/fresh-soy-tempeh-pack.png`
+- [x] Build all required landing page components
+- [x] Assemble page layout in `src/App.jsx`
+- [x] Verify build succeeds with `npm run build`
