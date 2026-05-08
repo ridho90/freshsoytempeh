@@ -1,0 +1,25 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "freshsoytempeh",
+  "compatibility_date": "2026-05-08",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "dist",
+    "not_found_handling": "single-page-application"
+  },
+  "routes": [
+    {
+      "pattern": "freshsoytempeh.nz",
+      "zone_id": "b03edc9d388e158772ca24870b5e0d24"
+    },
+    {
+      "pattern": "www.freshsoytempeh.nz",
+      "zone_id": "b03edc9d388e158772ca24870b5e0d24"
+    }
+  ],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}

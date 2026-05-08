@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.625rem;
+
+    /* Fresh Soy Tempeh Brand Colors */
+    --fresh-green: #65a957;
+    --deep-green: #4f7c48;
+    --leaf: #7fad5a;
+    --pale-green: #eef7ea;
+    --border-green: #d8ebd0;
+    --cream: #fffdf8;
+    --white: #ffffff;
+    --soy: #f6f0e4;
+    --slate: #2f3432;
+    --muted-text: #6b736e;
+    --orange-soy: #e89035;
+    --whatsapp: #25d366;
+    --whatsapp-dark: #1fa955;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(47, 52, 50, 0.06);
+    --shadow-md: 0 4px 12px rgba(47, 52, 50, 0.08);
+    --shadow-lg: 0 12px 40px rgba(47, 52, 50, 0.12);
+
+    /* Animation */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --duration-fast: 150ms;
+    --duration-base: 250ms;
+    --duration-slow: 400ms;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    scroll-padding-top: 72px;
+  }
+
+  ::selection {
+    background: var(--pale-green);
+    color: var(--deep-green);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--fresh-green);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* Scrollbar */
+@layer base {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-green);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--fresh-green);
+  }
+}
+
+/* Skip to Content */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  background: var(--deep-green);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0 0 8px 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: top var(--duration-fast) var(--ease-out-expo);
+}
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(100%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes bounceSubtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp var(--duration-slow) var(--ease-out-expo) forwards;
+}
+.animate-fade-in {
+  animation: fadeIn var(--duration-base) var(--ease-out-expo) forwards;
+}
+.animate-slide-in-right {
+  animation: slideInRight var(--duration-slow) var(--ease-out-expo) forwards;
+}
+.animate-scale-in {
+  animation: scaleIn var(--duration-slow) var(--ease-out-expo) forwards;
+}
+
+/* Stagger delays */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
+.stagger-7 { animation-delay: 0.35s; }
+
+/* Skeleton */
+.skeleton {
+  background: linear-gradient(90deg, var(--border-green) 25%, var(--pale-green) 50%, var(--border-green) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 12px;
+}
+
+/* Image Container */
+.img-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  background: var(--white);
+}
+.img-container img {
+  transition: transform var(--duration-slow) var(--ease-out-expo), opacity var(--duration-base) var(--ease-out-expo);
+}
+.img-container:hover img {
+  transform: scale(1.02);
+}
+
+/* Card Hover */
+.card-hover {
+  transition: transform var(--duration-base) var(--ease-out-expo), box-shadow var(--duration-base) var(--ease-out-expo);
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Hide scrollbar for horizontal scroll */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Responsive padding for mobile */
+@media (max-width: 1024px) {
+  #main-content {
+    padding-bottom: 7rem !important;
+  }
+}

@@ -1,0 +1,287 @@
+@import "tailwindcss";
+
+/* ============================================
+   FRESH SOY TEMPEH — IMPROVED GLOBAL STYLES
+   ============================================ */
+
+/* ---- CSS Custom Properties ---- */
+:root {
+  /* Brand Colors */
+  --fresh-green: #65a957;
+  --deep-green: #4f7c48;
+  --leaf: #7fad5a;
+  --pale-green: #eef7ea;
+  --border-green: #d8ebd0;
+
+  /* Neutrals */
+  --cream: #fffdf8;
+  --white: #ffffff;
+  --soy: #f6f0e4;
+
+  /* Typography */
+  --slate: #2f3432;
+  --muted: #6b736e;
+
+  /* Accents */
+  --orange-soy: #e89035;
+  --whatsapp: #25d366;
+  --whatsapp-dark: #1fa955;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(47, 52, 50, 0.06);
+  --shadow-md: 0 4px 12px rgba(47, 52, 50, 0.08);
+  --shadow-lg: 0 12px 40px rgba(47, 52, 50, 0.12);
+  --shadow-xl: 0 20px 60px rgba(47, 52, 50, 0.16);
+
+  /* Animation */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+}
+
+/* ---- Reset & Base ---- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+  background: var(--cream);
+  color: var(--slate);
+  line-height: 1.6;
+  scroll-padding-top: 72px; /* Offset untuk sticky navbar */
+}
+
+/* ---- Selection ---- */
+::selection {
+  background: var(--pale-green);
+  color: var(--deep-green);
+}
+
+/* ---- Scrollbar Styling ---- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-green);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--fresh-green);
+}
+
+/* ---- Links ---- */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+
+/* ---- Focus Visible (Global) ---- */
+:focus-visible {
+  outline: 2px solid var(--fresh-green);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- Skip to Content Link (Accessibility) ---- */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  background: var(--deep-green);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0 0 8px 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: top var(--duration-fast) var(--ease-out-expo);
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* ---- Animations ---- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes bounceSubtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+  }
+}
+
+/* Animation Utility Classes */
+.animate-fade-in-up {
+  animation: fadeInUp var(--duration-slow) var(--ease-out-expo) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--duration-base) var(--ease-out-expo) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight var(--duration-slow) var(--ease-out-expo) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn var(--duration-slow) var(--ease-out-expo) forwards;
+}
+
+/* Stagger delays */
+.stagger-1 { animation-delay: 0.05s; opacity: 0; }
+.stagger-2 { animation-delay: 0.1s; opacity: 0; }
+.stagger-3 { animation-delay: 0.15s; opacity: 0; }
+.stagger-4 { animation-delay: 0.2s; opacity: 0; }
+.stagger-5 { animation-delay: 0.25s; opacity: 0; }
+.stagger-6 { animation-delay: 0.3s; opacity: 0; }
+.stagger-7 { animation-delay: 0.35s; opacity: 0; }
+
+/* ---- Skeleton Loading ---- */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--border-green) 25%,
+    var(--pale-green) 50%,
+    var(--border-green) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 12px;
+}
+
+/* ---- Image Container with Aspect Ratio ---- */
+.img-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  background: var(--white);
+}
+
+.img-container img {
+  transition: transform var(--duration-slow) var(--ease-out-expo),
+              opacity var(--duration-base) var(--ease-out-expo);
+}
+
+.img-container:hover img {
+  transform: scale(1.02);
+}
+
+/* ---- Card Hover Effect ---- */
+.card-hover {
+  transition: transform var(--duration-base) var(--ease-out-expo),
+              box-shadow var(--duration-base) var(--ease-out-expo);
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
