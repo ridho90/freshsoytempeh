@@ -1,15 +1,17 @@
 import { FaWhatsapp } from 'react-icons/fa'
-import { trackWhatsAppClick } from '../lib/metaPixel'
+import { trackLead, makeWhatsAppUrl } from '../lib/metaPixel'
+
+const PHONE = '64274069207'
 
 function StickyWhatsAppCTA() {
   const handleClick = () => {
-    trackWhatsAppClick('sticky-whatsapp-cta')
+    trackLead('sticky-whatsapp-cta')
   }
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 border-t border-[#1fa955] bg-[#25D366] px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 shadow-[0_-8px_24px_rgba(0,0,0,0.12)] lg:hidden">
       <a
-        href="https://wa.me/64274069207"
+        href={makeWhatsAppUrl(PHONE, 'sticky-whatsapp-cta')}
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleClick}

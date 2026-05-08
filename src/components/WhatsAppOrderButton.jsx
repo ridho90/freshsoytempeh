@@ -1,14 +1,16 @@
 import { FaWhatsapp } from 'react-icons/fa'
-import { trackWhatsAppClick } from '../lib/metaPixel'
+import { trackLead, makeWhatsAppUrl } from '../lib/metaPixel'
+
+const PHONE = '64274069207'
 
 function WhatsAppOrderButton({ label = 'Order via WhatsApp', className = '' }) {
-  const handleClick = () => {
-    trackWhatsAppClick('whatsapp-order-button')
+  const handleClick = (e) => {
+    trackLead('whatsapp-order-button')
   }
 
   return (
     <a
-      href="https://wa.me/64274069207"
+      href={makeWhatsAppUrl(PHONE, 'whatsapp-order-button')}
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleClick}
